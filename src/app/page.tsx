@@ -1,6 +1,6 @@
-import Header2 from "@/components/Header2";
+import Navbar from "@/components/Navbar";
 // import Image from "next/image";
 
 export default function Home() {
-  return <Header2 />;
+  return <Navbar />;
 }
