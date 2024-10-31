@@ -8,6 +8,8 @@ export default function Home() {
 
       <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-4xl font-bold">Welcome to the Home Page</h1>
+        <p className="text-lg">this is a work in progress</p>
+        <p className="text-lg">come back soon</p>
       </div>
     </div>
   );
