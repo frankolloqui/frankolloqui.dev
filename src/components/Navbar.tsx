@@ -92,12 +92,12 @@ export default function Navbar() {
             🐦
           </a>
           <a
-            href="https://github.com/antfu"
+            href="https://github.com/frankolloqui"
             target="_blank"
             title="GitHub"
             className="hidden md:block"
           >
-            🐱
+            <Image src="/github.svg" alt="GitHub" width={20} height={20} />
           </a>
         </div>
       </nav>
