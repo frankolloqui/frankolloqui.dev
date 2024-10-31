@@ -6,10 +6,17 @@ export default function Home() {
     <div>
       <Navbar />
 
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-4xl font-bold">FRANK OLLOQUI</h1>
-        <p className="text-lg">this is a work in progress</p>
-        <p className="text-lg">come back soon</p>
+      <div className="flex flex-col items-center justify-center h-screen px-4 sm:px-8 md:px-16">
+        <div className="max-w-2xl w-full">
+          <h1 className="text-4xl font-bold mb-10">Frank Olloqui</h1>
+          <p className="text-lg">
+            Full-stack software engineer with a passion for crafting creative,
+            innovative solutions to complex challenges. Skilled in developing
+            and refining web technologies to drive efficiency and impact.
+            Committed to making a meaningful difference through technology and
+            inspiring influence in the tech landscape.
+          </p>
+        </div>
       </div>
     </div>
   );
