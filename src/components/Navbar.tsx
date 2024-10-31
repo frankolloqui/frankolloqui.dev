@@ -61,7 +61,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/talks"
-            className="flex items-center space-x-2 hidden md:inline-flex"
+            className="items-center space-x-2 hidden md:inline-flex"
             title="Talks"
           >
             <span>Talks</span>
