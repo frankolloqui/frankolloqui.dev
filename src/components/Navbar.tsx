@@ -57,7 +57,14 @@ export default function Navbar() {
             title="Projects"
           >
             <span className="hidden md:block">Projects</span>
-            <div className="md:hidden">💡</div>
+            <div className="md:hidden">
+              <Image
+                src="/projects.svg"
+                alt="Projects"
+                width={20}
+                height={20}
+              />
+            </div>
           </Link>
           <Link
             href="/talks"
@@ -81,15 +88,15 @@ export default function Navbar() {
             📸
           </Link>
           <Link href="/chat" title="Let's Chat">
-            💬
+            <Image src="/chat.svg" alt="Chat" width={20} height={20} />
           </Link>
           <a
-            href="https://twitter.com/antfu7"
+            href="https://twitter.com/idkfwank"
             target="_blank"
             title="Twitter"
             className="hidden md:block"
           >
-            🐦
+            <Image src="/twitter.svg" alt="Twitter" width={20} height={20} />
           </a>
           <a
             href="https://github.com/frankolloqui"
@@ -97,7 +104,7 @@ export default function Navbar() {
             title="GitHub"
             className="hidden md:block"
           >
-            <Image src="/github.svg" alt="GitHub" width={20} height={20} />
+            <Image src="/github.svg" alt="GitHub" width={24} height={24} />
           </a>
         </div>
       </nav>
