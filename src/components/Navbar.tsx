@@ -1,13 +1,10 @@
 // components/Header.tsx
-
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import ToggleTheme from "./ToggleTheme";
 
-export default function Header() {
+export default function Navbar() {
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
@@ -27,8 +24,8 @@ export default function Header() {
     <header className="header z-40 relative">
       <Link
         href="/"
-        passHref
         className="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
+        passHref
       >
         <Image src="/home.svg" alt="Vercel logomark" width={20} height={20} />
       </Link>
@@ -43,9 +40,9 @@ export default function Header() {
       >
         <div className="text-lg font-bold">⬆</div>
       </button>
-      <nav className="nav grid grid-cols-1 md:grid-cols-[1fr_auto] p-4">
+      <nav className="nav flex justify-between p-4">
         <div className="spacer" />
-        <div className="right grid grid-flow-col gap-4 items-center print:opacity-0">
+        <div className="right flex items-center gap-4 print:opacity-0">
           <Link
             href="/posts"
             className="flex items-center space-x-2"
@@ -62,8 +59,12 @@ export default function Header() {
             <span className="hidden md:block">Projects</span>
             <div className="md:hidden">💡</div>
           </Link>
-          <Link href="/talks" className="hidden md:block" title="Talks">
-            Talks
+          <Link
+            href="/talks"
+            className="items-center space-x-2 hidden md:inline-flex"
+            title="Talks"
+          >
+            <span>Talks</span>
           </Link>
           <Link
             href="/sponsors-list"
@@ -98,15 +99,6 @@ export default function Header() {
           >
             🐱
           </a>
-          <a
-            href="/feed.xml"
-            target="_blank"
-            title="RSS"
-            className="hidden md:block text-xl"
-          >
-            📡
-          </a>
-          <Image src="/home.svg" alt="Theme" width={20} height={20} />
         </div>
       </nav>
     </header>
