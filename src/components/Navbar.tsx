@@ -2,7 +2,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
+import {
+  Github,
+  MessageCirclePlus,
+  Podcast,
+  Camera,
+  Lightbulb,
+  Heart,
+  NotebookText,
+  House,
+} from "lucide-react";
 
 export default function Navbar() {
   const [scroll, setScroll] = useState(0);
@@ -27,7 +37,7 @@ export default function Navbar() {
         className="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
         passHref
       >
-        <Image src="/home.svg" alt="Vercel logomark" width={24} height={24} />
+        <House className="w-6 h-6" />
       </Link>
       <button
         title="Scroll to top"
@@ -49,7 +59,9 @@ export default function Navbar() {
             title="Blog"
           >
             <span className="hidden md:block">Blog</span>
-            <div className="md:hidden">📰</div>
+            <div className="md:hidden">
+              <NotebookText className="w-5 h-5" />
+            </div>
           </Link>
           <Link
             href="/projects"
@@ -58,12 +70,7 @@ export default function Navbar() {
           >
             <span className="hidden md:block">Projects</span>
             <div className="md:hidden">
-              <Image
-                src="/projects.svg"
-                alt="Projects"
-                width={20}
-                height={20}
-              />
+              <Lightbulb className="w-5 h-5" />
             </div>
           </Link>
           <Link
@@ -79,16 +86,18 @@ export default function Navbar() {
             title="Sponsors"
           >
             <span className="hidden md:block">Sponsors</span>
-            <div className="md:hidden">❤️</div>
+            <div className="md:hidden">
+              <Heart className="w-5 h-5" />
+            </div>
           </Link>
           <Link href="/podcasts" className="hidden md:block" title="Podcasts">
-            🎙️
+            <Podcast className="w-5 h-5" />
           </Link>
           <Link href="/demos" title="Demos">
-            📸
+            <Camera className="w-5 h-5" />
           </Link>
           <Link href="/chat" title="Let's Chat">
-            <Image src="/chat.svg" alt="Chat" width={20} height={20} />
+            <MessageCirclePlus className="w-5 h-5" />
           </Link>
           <a
             href="https://twitter.com/idkfwank"
@@ -96,7 +105,9 @@ export default function Navbar() {
             title="Twitter"
             className="hidden md:block"
           >
-            <Image src="/twitter.svg" alt="Twitter" width={24} height={24} />
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
           <a
             href="https://github.com/frankolloqui"
@@ -104,7 +115,7 @@ export default function Navbar() {
             title="GitHub"
             className="hidden md:block"
           >
-            <Image src="/github.svg" alt="GitHub" width={24} height={24} />
+            <Github className="w-5 h-5" />
           </a>
         </div>
       </nav>
