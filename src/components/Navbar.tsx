@@ -27,7 +27,7 @@ export default function Navbar() {
         className="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
         passHref
       >
-        <Image src="/home.svg" alt="Vercel logomark" width={20} height={20} />
+        <Image src="/home.svg" alt="Vercel logomark" width={24} height={24} />
       </Link>
       <button
         title="Scroll to top"
@@ -96,7 +96,7 @@ export default function Navbar() {
             title="Twitter"
             className="hidden md:block"
           >
-            <Image src="/twitter.svg" alt="Twitter" width={20} height={20} />
+            <Image src="/twitter.svg" alt="Twitter" width={24} height={24} />
           </a>
           <a
             href="https://github.com/frankolloqui"
