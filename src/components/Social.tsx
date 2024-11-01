@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Mail, Instagram } from "lucide-react";
+import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 
 const SocialLinks = () => {
   return (
@@ -44,11 +44,11 @@ const SocialLinks = () => {
         </a>
 
         <a
-          href="mailto:hi@yourdomain.com"
+          href="https://www.linkedin.com/in/frankolloqui/"
           className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
         >
-          <Mail className="w-5 h-5" />
-          <span>Email me</span>
+          <Linkedin className="w-5 h-5" />
+          <span>Linkedin</span>
         </a>
       </div>
     </div>
