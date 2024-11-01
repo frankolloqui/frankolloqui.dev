@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Mail, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 
 const SocialLinks = () => {
   return (
