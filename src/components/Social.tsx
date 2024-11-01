@@ -45,7 +45,7 @@ const SocialLinks = () => {
           href="https://www.linkedin.com/in/frankolloqui/"
           className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
         >
-          <Linkedin className="w-5 h-5" />
+          <Linkedin className="w-5 h-5" strokeWidth={1.65} />
           <span>Linkedin</span>
         </a>
       </div>
