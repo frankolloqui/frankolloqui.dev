@@ -58,9 +58,11 @@ export default function Navbar() {
             className="flex items-center space-x-2"
             title="Blog"
           >
-            <span className="hidden md:block">Blog</span>
+            <span className="hidden md:block text-custom-text hover:text-white">
+              Blog
+            </span>
             <div className="md:hidden">
-              <NotebookText className="w-5 h-5" />
+              <NotebookText className="w-5 h-5 text-custom-text hover:text-white" />
             </div>
           </Link>
           <Link
@@ -68,9 +70,11 @@ export default function Navbar() {
             className="flex items-center space-x-2"
             title="Projects"
           >
-            <span className="hidden md:block">Projects</span>
+            <span className="hidden md:block text-custom-text hover:text-white">
+              Projects
+            </span>
             <div className="md:hidden">
-              <Lightbulb className="w-5 h-5" />
+              <Lightbulb className="w-5 h-5 text-custom-text hover:text-white" />
             </div>
           </Link>
           <Link
@@ -78,26 +82,28 @@ export default function Navbar() {
             className="items-center space-x-2 hidden md:inline-flex"
             title="Talks"
           >
-            <span>Talks</span>
+            <span className="text-custom-text hover:text-white">Talks</span>
           </Link>
           <Link
             href="/sponsors-list"
             className="flex items-center space-x-2"
             title="Sponsors"
           >
-            <span className="hidden md:block">Sponsors</span>
+            <span className="hidden md:block text-custom-text hover:text-white">
+              Sponsors
+            </span>
             <div className="md:hidden">
-              <Heart className="w-5 h-5" />
+              <Heart className="w-5 h-5 text-custom-text hover:text-white" />
             </div>
           </Link>
           <Link href="/podcasts" className="hidden md:block" title="Podcasts">
-            <Podcast className="w-5 h-5" />
+            <Podcast className="w-5 h-5 text-custom-text hover:text-white" />
           </Link>
           <Link href="/demos" title="Demos">
-            <Camera className="w-5 h-5" />
+            <Camera className="w-5 h-5 text-custom-text hover:text-white" />
           </Link>
           <Link href="/chat" title="Let's Chat">
-            <MessageCirclePlus className="w-5 h-5" />
+            <MessageCirclePlus className="w-5 h-5 text-custom-text hover:text-white" />
           </Link>
           <a
             href="https://twitter.com/idkfwank"
@@ -105,7 +111,11 @@ export default function Navbar() {
             title="Twitter"
             className="hidden md:block"
           >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              className="w-5 h-5 text-custom-text hover:text-white"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
           </a>
@@ -115,7 +125,7 @@ export default function Navbar() {
             title="GitHub"
             className="hidden md:block"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-5 h-5 text-custom-text hover:text-white" />
           </a>
         </div>
       </nav>

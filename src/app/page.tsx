@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import SocialLinks from "@/components/Social";
-// import Image from "next/image";
 
 export default function Home() {
   return (
