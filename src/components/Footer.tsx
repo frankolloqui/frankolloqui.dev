@@ -5,11 +5,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-gray-800 mt-auto">
       <div className="max-w-2xl mx-auto px-4 py-4">
-        {" "}
-        {/* Changed py-8 to py-4 */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-2">
-          {" "}
-          {/* Changed gap-4 to gap-2 */}
           <div className="text-custom-text text-sm">
             © {new Date().getFullYear()} Frank Olloqui. All rights reserved.
           </div>
