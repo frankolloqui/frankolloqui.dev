@@ -85,12 +85,12 @@ export default function Navbar() {
             <span className="text-custom-text hover:text-white">Talks</span>
           </Link>
           <Link
-            href="/sponsors-list"
+            href="/Photography"
             className="flex items-center space-x-2"
-            title="Sponsors"
+            title="Photography"
           >
             <span className="hidden md:block text-custom-text hover:text-white">
-              Sponsors
+              Photography
             </span>
             <div className="md:hidden">
               <Heart className="w-5 h-5 text-custom-text hover:text-white" />
