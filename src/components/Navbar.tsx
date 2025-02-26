@@ -6,10 +6,8 @@ import Link from "next/link";
 import {
   Github,
   MessageCirclePlus,
-  Podcast,
   Camera,
   Lightbulb,
-  Heart,
   NotebookText,
   House,
 } from "lucide-react";
@@ -53,11 +51,7 @@ export default function Navbar() {
       <nav className="nav flex justify-between p-4">
         <div className="spacer" />
         <div className="right flex items-center gap-4 print:opacity-0">
-          <Link
-            href="/posts"
-            className="flex items-center space-x-2"
-            title="Blog"
-          >
+          <Link href="/posts" className="flex items-center" title="Blog">
             <span className="hidden md:block text-custom-text hover:text-white">
               Blog
             </span>
@@ -65,11 +59,7 @@ export default function Navbar() {
               <NotebookText className="w-5 h-5 text-custom-text hover:text-white" />
             </div>
           </Link>
-          <Link
-            href="/projects"
-            className="flex items-center space-x-2"
-            title="Projects"
-          >
+          <Link href="/projects" className="flex items-center" title="Projects">
             <span className="hidden md:block text-custom-text hover:text-white">
               Projects
             </span>
@@ -78,29 +68,16 @@ export default function Navbar() {
             </div>
           </Link>
           <Link
-            href="/talks"
-            className="items-center space-x-2 hidden md:inline-flex"
-            title="Talks"
-          >
-            <span className="text-custom-text hover:text-white">Talks</span>
-          </Link>
-          <Link
             href="/Photography"
-            className="flex items-center space-x-2"
+            className="flex items-center"
             title="Photography"
           >
             <span className="hidden md:block text-custom-text hover:text-white">
               Photography
             </span>
             <div className="md:hidden">
-              <Heart className="w-5 h-5 text-custom-text hover:text-white" />
+              <Camera className="w-5 h-5 text-custom-text hover:text-white" />
             </div>
-          </Link>
-          <Link href="/podcasts" className="hidden md:block" title="Podcasts">
-            <Podcast className="w-5 h-5 text-custom-text hover:text-white" />
-          </Link>
-          <Link href="/demos" title="Demos">
-            <Camera className="w-5 h-5 text-custom-text hover:text-white" />
           </Link>
           <Link href="/chat" title="Let's Chat">
             <MessageCirclePlus className="w-5 h-5 text-custom-text hover:text-white" />
