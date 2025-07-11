@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 export default function ProjectsPage() {
   return (
@@ -15,7 +16,7 @@ export default function ProjectsPage() {
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-          I'm currently working on something awesome. My projects showcase will be available here shortly.
+          Im currently working on something awesome. My projects showcase will be available here shortly.
         </p>
         
         <div className="mt-10">
@@ -26,12 +27,12 @@ export default function ProjectsPage() {
         </div>
         
         <div className="mt-12 flex flex-col md:flex-row gap-4 justify-center">
-          <a href="/" className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg font-medium hover:opacity-90 transition duration-300 font-medium">
+          <Link href="/" className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg font-medium hover:opacity-90 transition duration-300 font-medium">
             Return Home
-          </a>
-          <a href="mailto:contact@example.com" className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-300 font-medium">
+          </Link>
+          <Link href="mailto:contact@example.com" className="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors duration-300 font-medium">
             Contact Me
-          </a>
+          </Link>
         </div>
       </div>
       

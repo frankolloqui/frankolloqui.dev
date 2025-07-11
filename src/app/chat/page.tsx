@@ -23,7 +23,6 @@ export default function LetsChat() {
           </h1>
 
           <div className="grid md:grid-cols-2 gap-12 mt-16">
-            {/* Left Column - Contact Form */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-xl"
@@ -62,7 +61,6 @@ export default function LetsChat() {
               </form>
             </motion.div>
 
-            {/* Right Column - Interactive Element */}
             <motion.div
               className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-xl flex flex-col justify-center"
               whileHover={{ scale: 1.02 }}
