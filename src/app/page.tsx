@@ -19,7 +19,7 @@ export default function Home() {
             </p>
 
             <p className="text-lg text-custom-text">
-              Recently, I’ve embarked on the incredible journey of new
+              Recently, I’ve embarked on the incredible journey of
               fatherhood, embracing its joys while continuing to make progress
               on my projects and learning. Alongside this, I’ve rekindled my
               passion for photography, capturing special moments as they come.
