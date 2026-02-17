@@ -28,9 +28,9 @@ export default function Home() {
 
             <article>
               <p className="text-lg text-custom-text leading-relaxed">
-                Recently, I've embarked on the incredible journey of
+                Recently, I&apos;ve embarked on the incredible journey of
                 fatherhood, embracing its joys while continuing to make progress
-                on my projects and learning. Alongside this, I've rekindled my
+                on my projects and learning. Alongside this, I&apos;ve rekindled my
                 passion for photography, capturing special moments as they come.
               </p>
             </article>

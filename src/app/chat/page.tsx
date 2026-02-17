@@ -62,6 +62,7 @@ export default function LetsChat() {
       }
     } catch (err) {
       setError("An error occurred. Please try again later.");
+      console.log("Contact form error:", err);
     } finally {
       setLoading(false);
     }
@@ -89,7 +90,7 @@ export default function LetsChat() {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 {submitted && (
                   <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300">
-                    ✓ Message sent successfully! I'll get back to you soon.
+                    ✓ Message sent successfully! I&apos;ll get back to you soon.
                   </div>
                 )}
                 {error && (
