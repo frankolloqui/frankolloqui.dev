@@ -32,12 +32,6 @@ export default function Navbar() {
 
   const isActive = (path: string) => pathname === path;
 
-  const navLinkClass = (path: string) =>
-    `flex items-center hover:text-white transition-all duration-200 relative ${isActive(path)
-      ? "text-white after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-accent-purple after:to-accent-pink after:rounded-full"
-      : "text-custom-text"
-    }`;
-
   return (
     <header className="header z-40 relative">
       {/* Scroll to top */}
@@ -45,8 +39,8 @@ export default function Navbar() {
         title="Scroll to top"
         aria-label="Scroll to top"
         className={`fixed right-4 bottom-4 w-10 h-10 rounded-full transition-all duration-300 z-50 print:hidden flex items-center justify-center glass ${scroll > 300
-            ? "opacity-70 hover:opacity-100 hover:glow-sm translate-y-0"
-            : "opacity-0 pointer-events-none translate-y-4"
+          ? "opacity-70 hover:opacity-100 hover:glow-sm translate-y-0"
+          : "opacity-0 pointer-events-none translate-y-4"
           }`}
         onClick={toTop}
       >
@@ -56,26 +50,37 @@ export default function Navbar() {
       {/* Glassmorphism navbar on scroll */}
       <nav
         className={`nav fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-5 py-3 transition-all duration-500 ${scroll > 50
-            ? "bg-[#050507]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
-            : "bg-transparent border-b border-transparent"
+          ? "bg-[#050507]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
+          : "bg-transparent border-b border-transparent"
           }`}
         aria-label="Main navigation"
       >
         <Link
           href="/"
-          className="flex items-center justify-center w-9 h-9 rounded-lg text-custom-text hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+          className={`flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/[0.06] transition-all duration-200 ${isActive("/") ? "text-white bg-white/[0.04]" : "text-custom-text hover:text-white"
+            }`}
           aria-label="Home"
         >
           <House className="w-5 h-5" />
         </Link>
-        <div className="right flex items-center gap-5 print:opacity-0">
-          <Link href="/blog" className={navLinkClass("/blog")} aria-label="Blog">
+        <div className="right flex items-center gap-1 print:opacity-0">
+          <Link
+            href="/blog"
+            className={`flex items-center rounded-lg px-3 py-2 hover:bg-white/[0.06] transition-all duration-200 ${isActive("/blog") ? "text-white bg-white/[0.04]" : "text-custom-text hover:text-white"
+              }`}
+            aria-label="Blog"
+          >
             <span className="hidden md:block text-sm font-medium">Blog</span>
             <div className="md:hidden">
               <NotebookText className="w-5 h-5" />
             </div>
           </Link>
-          <Link href="/projects" className={navLinkClass("/projects")} aria-label="Projects">
+          <Link
+            href="/projects"
+            className={`flex items-center rounded-lg px-3 py-2 hover:bg-white/[0.06] transition-all duration-200 ${isActive("/projects") ? "text-white bg-white/[0.04]" : "text-custom-text hover:text-white"
+              }`}
+            aria-label="Projects"
+          >
             <span className="hidden md:block text-sm font-medium">Projects</span>
             <div className="md:hidden">
               <Lightbulb className="w-5 h-5" />
@@ -83,7 +88,8 @@ export default function Navbar() {
           </Link>
           <Link
             href="/photography"
-            className={navLinkClass("/photography")}
+            className={`flex items-center rounded-lg px-3 py-2 hover:bg-white/[0.06] transition-all duration-200 ${isActive("/photography") ? "text-white bg-white/[0.04]" : "text-custom-text hover:text-white"
+              }`}
             aria-label="Photography"
           >
             <span className="hidden md:block text-sm font-medium">Photography</span>
@@ -93,9 +99,14 @@ export default function Navbar() {
           </Link>
 
           {/* Separator */}
-          <div className="hidden md:block w-px h-4 bg-white/10" />
+          <div className="hidden md:block w-px h-4 bg-white/10 mx-1" />
 
-          <Link href="/chat" aria-label="Contact - Let's Chat" className={navLinkClass("/chat")}>
+          <Link
+            href="/chat"
+            className={`flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/[0.06] transition-all duration-200 ${isActive("/chat") ? "text-white bg-white/[0.04]" : "text-custom-text hover:text-white"
+              }`}
+            aria-label="Contact - Let's Chat"
+          >
             <MessageCirclePlus className="w-5 h-5" />
           </Link>
           <a
@@ -103,7 +114,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            className="hidden md:block text-custom-text hover:text-white transition-colors duration-200"
+            className="hidden md:flex items-center justify-center w-9 h-9 rounded-lg text-custom-text hover:text-white hover:bg-white/[0.06] transition-all duration-200"
           >
             <svg
               className="w-5 h-5"
@@ -119,7 +130,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hidden md:block text-custom-text hover:text-white transition-colors duration-200"
+            className="hidden md:flex items-center justify-center w-9 h-9 rounded-lg text-custom-text hover:text-white hover:bg-white/[0.06] transition-all duration-200"
           >
             <Github className="w-5 h-5" />
           </a>
