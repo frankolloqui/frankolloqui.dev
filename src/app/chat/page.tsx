@@ -7,6 +7,65 @@ import { useState } from "react";
 
 export default function LetsChat() {
   const [isHovered, setIsHovered] = useState(false);
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormState((prev) => ({ ...prev, [name]: value }));
+    setError(null);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formState.email)) {
+      setError("Please enter a valid email address");
+      setLoading(false);
+      return;
+    }
+
+    if (!formState.name.trim() || !formState.message.trim()) {
+      setError("Please fill in all fields");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      // Send email via API
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormState({ name: "", email: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError("Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -27,13 +86,28 @@ export default function LetsChat() {
               whileHover={{ scale: 1.02 }}
               className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-xl"
             >
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {submitted && (
+                  <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300">
+                    ✓ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                {error && (
+                  <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300">
+                    ✕ {error}
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition"
+                    name="name"
+                    value={formState.name}
+                    onChange={handleChange}
+                    disabled={loading}
+                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition disabled:opacity-50"
                     placeholder="Your name"
+                    required
                   />
                 </div>
                 <div>
@@ -42,8 +116,13 @@ export default function LetsChat() {
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition"
+                    name="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    disabled={loading}
+                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition disabled:opacity-50"
                     placeholder="your@email.com"
+                    required
                   />
                 </div>
                 <div>
@@ -51,12 +130,21 @@ export default function LetsChat() {
                     Message
                   </label>
                   <textarea
-                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition h-32"
+                    name="message"
+                    value={formState.message}
+                    onChange={handleChange}
+                    disabled={loading}
+                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition h-32 disabled:opacity-50"
                     placeholder="What's on your mind?"
+                    required
                   />
                 </div>
-                <button className="w-full py-3 px-6 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg font-medium hover:opacity-90 transition">
-                  Send Message
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3 px-6 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </motion.div>
@@ -100,7 +188,7 @@ export default function LetsChat() {
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                       />
                     </svg>
-                    <span>devolloqui@gmail.com</span>
+                    <span>olloqui.frank@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <svg
