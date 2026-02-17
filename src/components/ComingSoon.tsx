@@ -25,7 +25,7 @@ export default function ComingSoon({ title, description }: ComingSoonProps) {
             <div className="absolute top-0 left-0 h-full w-2/3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
           </div>
           <p className="mt-4 text-sm text-gray-400">
-            Development in progress...
+            Development in progress<span className="animate-ellipsis"></span>
           </p>
         </div>
 
