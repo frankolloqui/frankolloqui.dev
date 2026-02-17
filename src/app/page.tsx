@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SocialLinks from "@/components/Social";
+import TypingTitle from "@/components/TypingTitle";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center px-4 sm:px-8 md:px-16">
         <div className="max-w-2xl w-full mt-20 mb-20">
           <header className="mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 flex items-center">Frank Olloqui<span className="cursor"></span></h1>
+            <TypingTitle />
             <p className="text-lg text-custom-text font-light">
               Software Engineer • Creating Impact Through Technology
             </p>
