@@ -40,15 +40,6 @@ export default function Navbar() {
 
   return (
     <header className="header z-40 relative">
-      <Link
-        href="/"
-        className="w-12 h-12 absolute xl:fixed m-5 select-none outline-none hover:text-accent-purple transition-colors duration-200"
-        passHref
-        aria-label="Home"
-      >
-        <House className="w-6 h-6" />
-      </Link>
-
       {/* Scroll to top */}
       <button
         title="Scroll to top"
@@ -64,13 +55,19 @@ export default function Navbar() {
 
       {/* Glassmorphism navbar on scroll */}
       <nav
-        className={`nav fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-4 py-3 transition-all duration-500 ${scroll > 50
+        className={`nav fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-5 py-3 transition-all duration-500 ${scroll > 50
             ? "bg-[#050507]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
             : "bg-transparent border-b border-transparent"
           }`}
         aria-label="Main navigation"
       >
-        <div className="spacer" />
+        <Link
+          href="/"
+          className="flex items-center justify-center w-9 h-9 rounded-lg text-custom-text hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+          aria-label="Home"
+        >
+          <House className="w-5 h-5" />
+        </Link>
         <div className="right flex items-center gap-5 print:opacity-0">
           <Link href="/blog" className={navLinkClass("/blog")} aria-label="Blog">
             <span className="hidden md:block text-sm font-medium">Blog</span>
