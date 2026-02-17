@@ -1,8 +1,8 @@
-// components/Header.tsx
+// components/Navbar.tsx
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 import {
   Github,
   MessageCirclePlus,
@@ -10,10 +10,12 @@ import {
   Lightbulb,
   NotebookText,
   House,
+  ChevronUp,
 } from "lucide-react";
 
 export default function Navbar() {
   const [scroll, setScroll] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScroll(window.scrollY);
@@ -28,71 +30,86 @@ export default function Navbar() {
     });
   };
 
+  const isActive = (path: string) => pathname === path;
+
+  const navLinkClass = (path: string) =>
+    `flex items-center hover:text-white transition-all duration-200 relative ${isActive(path)
+      ? "text-white after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-gradient-to-r after:from-accent-purple after:to-accent-pink after:rounded-full"
+      : "text-custom-text"
+    }`;
+
   return (
     <header className="header z-40 relative">
       <Link
         href="/"
-        className="w-12 h-12 absolute xl:fixed m-5 select-none outline-none hover:opacity-80 transition-opacity"
+        className="w-12 h-12 absolute xl:fixed m-5 select-none outline-none hover:text-accent-purple transition-colors duration-200"
         passHref
         aria-label="Home"
       >
         <House className="w-6 h-6" />
       </Link>
+
+      {/* Scroll to top */}
       <button
         title="Scroll to top"
         aria-label="Scroll to top"
-        className={`fixed right-3 bottom-3 w-10 h-10 rounded-full transition duration-300 z-100 print:hidden ${
-          scroll > 300
-            ? "opacity-30 hover:opacity-100"
-            : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed right-4 bottom-4 w-10 h-10 rounded-full transition-all duration-300 z-50 print:hidden flex items-center justify-center glass ${scroll > 300
+            ? "opacity-70 hover:opacity-100 hover:glow-sm translate-y-0"
+            : "opacity-0 pointer-events-none translate-y-4"
+          }`}
         onClick={toTop}
       >
-        <div className="text-lg font-bold">⬆</div>
+        <ChevronUp className="w-4 h-4" />
       </button>
-      <nav className="nav flex justify-between p-4" aria-label="Main navigation">
+
+      {/* Glassmorphism navbar on scroll */}
+      <nav
+        className={`nav fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-4 py-3 transition-all duration-500 ${scroll > 50
+            ? "bg-[#050507]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
+            : "bg-transparent border-b border-transparent"
+          }`}
+        aria-label="Main navigation"
+      >
         <div className="spacer" />
-        <div className="right flex items-center gap-4 print:opacity-0">
-          <Link href="/blog" className="flex items-center hover:opacity-80 transition-opacity" aria-label="Blog">
-            <span className="hidden md:block text-custom-text">
-              Blog
-            </span>
+        <div className="right flex items-center gap-5 print:opacity-0">
+          <Link href="/blog" className={navLinkClass("/blog")} aria-label="Blog">
+            <span className="hidden md:block text-sm font-medium">Blog</span>
             <div className="md:hidden">
-              <NotebookText className="w-5 h-5 text-custom-text" />
+              <NotebookText className="w-5 h-5" />
             </div>
           </Link>
-          <Link href="/projects" className="flex items-center hover:opacity-80 transition-opacity" aria-label="Projects">
-            <span className="hidden md:block text-custom-text">
-              Projects
-            </span>
+          <Link href="/projects" className={navLinkClass("/projects")} aria-label="Projects">
+            <span className="hidden md:block text-sm font-medium">Projects</span>
             <div className="md:hidden">
-              <Lightbulb className="w-5 h-5 text-custom-text" />
+              <Lightbulb className="w-5 h-5" />
             </div>
           </Link>
           <Link
             href="/photography"
-            className="flex items-center hover:opacity-80 transition-opacity"
+            className={navLinkClass("/photography")}
             aria-label="Photography"
           >
-            <span className="hidden md:block text-custom-text">
-              Photography
-            </span>
+            <span className="hidden md:block text-sm font-medium">Photography</span>
             <div className="md:hidden">
-              <Camera className="w-5 h-5 text-custom-text" />
+              <Camera className="w-5 h-5" />
             </div>
           </Link>
-          <Link href="/chat" aria-label="Contact - Let's Chat" className="hover:opacity-80 transition-opacity">
-            <MessageCirclePlus className="w-5 h-5 text-custom-text" />
+
+          {/* Separator */}
+          <div className="hidden md:block w-px h-4 bg-white/10" />
+
+          <Link href="/chat" aria-label="Contact - Let's Chat" className={navLinkClass("/chat")}>
+            <MessageCirclePlus className="w-5 h-5" />
           </Link>
           <a
             href="https://twitter.com/idkfwank"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            className="hidden md:block hover:opacity-80 transition-opacity"
+            className="hidden md:block text-custom-text hover:text-white transition-colors duration-200"
           >
             <svg
-              className="w-5 h-5 text-custom-text"
+              className="w-5 h-5"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
@@ -105,9 +122,9 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hidden md:block hover:opacity-80 transition-opacity"
+            className="hidden md:block text-custom-text hover:text-white transition-colors duration-200"
           >
-            <Github className="w-5 h-5 text-custom-text" />
+            <Github className="w-5 h-5" />
           </a>
         </div>
       </nav>

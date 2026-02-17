@@ -21,9 +21,15 @@ export default function TypingTitle() {
   }, []);
 
   return (
-    <h1 className="text-5xl md:text-6xl font-bold mb-4 flex items-center min-h-[4rem]" style={{ color: '#4B29E6' }}>
-      {displayedText}
-      <span className={`cursor ${displayedText.length === fullText.length ? 'cursor-blink' : 'cursor-typing'}`} style={{ backgroundColor: 'white' }}></span>
+    <h1 className="text-5xl md:text-7xl font-bold mb-4 flex items-center min-h-[4.5rem]">
+      <span className="gradient-text">{displayedText}</span>
+      <span
+        className={`cursor ${displayedText.length === fullText.length ? 'cursor-blink' : 'cursor-typing'}`}
+        style={{
+          backgroundColor: '#7C3AED',
+          boxShadow: '0 0 8px rgba(124, 58, 237, 0.6)',
+        }}
+      />
     </h1>
   );
 }

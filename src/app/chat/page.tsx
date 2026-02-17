@@ -68,51 +68,67 @@ export default function LetsChat() {
     }
   };
 
+  const inputClass =
+    "w-full px-4 py-3 bg-white/[0.04] border border-white/[0.08] rounded-xl focus:ring-2 focus:ring-accent-purple/50 focus:border-accent-purple/50 outline-none transition-all duration-300 disabled:opacity-50 placeholder:text-gray-500 hover:border-white/15";
+
   return (
-    <div>
+    <div className="relative z-10">
       <Navbar />
-      <div className="min-h-screen  text-white py-20 px-4">
+      <div className="min-h-screen text-white py-20 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-6xl font-bold mb-8 bg-clip-text">
+          <h1 className="text-5xl md:text-6xl font-bold mb-3 gradient-text">
             Let&apos;s Chat
           </h1>
+          <p className="text-custom-text text-lg mb-16">
+            Got a project in mind? Let&apos;s make it happen.
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-12 mt-16">
+          <div className="grid md:grid-cols-2 gap-8 mt-8">
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-xl"
+              whileHover={{ scale: 1.01 }}
+              className="glass rounded-2xl p-8 transition-all duration-300 hover:border-white/15"
             >
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 {submitted && (
-                  <div className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-sm"
+                  >
                     ✓ Message sent successfully! I&apos;ll get back to you soon.
-                  </div>
+                  </motion.div>
                 )}
                 {error && (
-                  <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm"
+                  >
                     ✕ {error}
-                  </div>
+                  </motion.div>
                 )}
                 <div>
-                  <label className="block text-sm font-medium mb-2">Name</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
+                    Name
+                  </label>
                   <input
                     type="text"
                     name="name"
                     value={formState.name}
                     onChange={handleChange}
                     disabled={loading}
-                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition disabled:opacity-50"
+                    className={inputClass}
                     placeholder="Your name"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
                     Email
                   </label>
                   <input
@@ -121,13 +137,13 @@ export default function LetsChat() {
                     value={formState.email}
                     onChange={handleChange}
                     disabled={loading}
-                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition disabled:opacity-50"
+                    className={inputClass}
                     placeholder="your@email.com"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-300">
                     Message
                   </label>
                   <textarea
@@ -135,7 +151,7 @@ export default function LetsChat() {
                     value={formState.message}
                     onChange={handleChange}
                     disabled={loading}
-                    className="w-full px-4 py-3 bg-white/10 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none transition h-32 disabled:opacity-50"
+                    className={`${inputClass} h-32 resize-none`}
                     placeholder="What's on your mind?"
                     required
                   />
@@ -143,7 +159,10 @@ export default function LetsChat() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 px-6 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-3 px-6 rounded-xl font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/20"
+                  style={{
+                    background: "linear-gradient(135deg, #7C3AED, #EC4899)",
+                  }}
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </button>
@@ -151,8 +170,8 @@ export default function LetsChat() {
             </motion.div>
 
             <motion.div
-              className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-xl flex flex-col justify-center"
-              whileHover={{ scale: 1.02 }}
+              className="glass rounded-2xl p-8 flex flex-col justify-center transition-all duration-300 hover:border-white/15"
+              whileHover={{ scale: 1.01 }}
             >
               <div
                 className="relative cursor-pointer"
@@ -162,22 +181,28 @@ export default function LetsChat() {
                 <motion.div
                   animate={{ rotate: isHovered ? 360 : 0 }}
                   transition={{ duration: 0.5 }}
-                  className="w-24 h-24 mx-auto mb-6"
+                  className="w-24 h-24 mx-auto mb-8"
                 >
-                  <div className="w-full h-full bg-gradient-to-r from-purple-400 to-pink-600 rounded-full" />
+                  <div
+                    className="w-full h-full rounded-full"
+                    style={{
+                      background: "linear-gradient(135deg, #7C3AED, #EC4899)",
+                      boxShadow: "0 0 40px rgba(124, 58, 237, 0.3), 0 0 80px rgba(236, 72, 153, 0.15)",
+                    }}
+                  />
                 </motion.div>
                 <h2 className="text-2xl font-bold mb-4">
                   Let&apos;s Create Something Amazing
                 </h2>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Have an idea? Want to collaborate? Or just want to say hi?
                   I&apos;m always excited to connect with fellow creators and
                   innovators.
                 </p>
-                <div className="mt-6 space-y-4">
-                  <div className="flex items-center space-x-3">
+                <div className="mt-8 space-y-4">
+                  <div className="flex items-center space-x-3 text-gray-300">
                     <svg
-                      className="w-5 h-5 text-purple-400"
+                      className="w-5 h-5 text-accent-purple"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -191,9 +216,9 @@ export default function LetsChat() {
                     </svg>
                     <span>olloqui.frank@gmail.com</span>
                   </div>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-3 text-gray-300">
                     <svg
-                      className="w-5 h-5 text-purple-400"
+                      className="w-5 h-5 text-accent-purple"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
