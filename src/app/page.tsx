@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SocialLinks from "@/components/Social";
 import TypingTitle from "@/components/TypingTitle";
+import HoverGifWord from "@/components/HoverGifWord";
 import { motion } from "framer-motion";
 
 const stagger = {
@@ -50,22 +51,38 @@ export default function Home() {
 
           <motion.section className="space-y-8 mb-12" variants={fadeUp}>
             <article>
-              <p className="text-lg text-custom-text leading-relaxed">
-                Software engineer with a passion for crafting creative, innovative
+              <div className="text-lg text-custom-text leading-relaxed">
+                <HoverGifWord
+                  word="Software engineer"
+                  gifUrl="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif"
+                  altText="Software engineering typing on keyboard"
+                />{" "}
+                with a passion for crafting creative, innovative
                 solutions to complex challenges. Skilled in developing and
                 refining web technologies to drive efficiency and impact.
                 Committed to making a meaningful difference through technology and
                 inspiring influence in the tech landscape.
-              </p>
+              </div>
             </article>
 
             <article>
-              <p className="text-lg text-custom-text leading-relaxed">
-                Recently, I&apos;ve embarked on the incredible journey of
-                fatherhood, embracing its joys while continuing to make progress
+              <div className="text-lg text-custom-text leading-relaxed">
+                Recently, I&apos;ve embarked on the incredible journey of{" "}
+                <HoverGifWord
+                  word="fatherhood"
+                  gifUrl="https://media.giphy.com/media/l41YkxvU8c7J7Bba0/giphy.gif"
+                  altText="Happy father and baby"
+                />
+                , embracing its joys while continuing to make progress
                 on my projects and learning. Alongside this, I&apos;ve rekindled my
-                passion for photography, capturing special moments as they come.
-              </p>
+                passion for{" "}
+                <HoverGifWord
+                  word="photography"
+                  gifUrl="https://media.tenor.com/5QSZK3b5vb0AAAAC/photographer-camera.gif"
+                  altText="Camera snapping a photo"
+                />
+                , capturing special moments as they come.
+              </div>
             </article>
           </motion.section>
 
